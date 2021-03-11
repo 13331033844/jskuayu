@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>11</title>
+</head>
+<body>
+	<div id='resText'>
+		
+	</div>
+    <button id='login'>login</button>
+    <button id='get'>get</button>
+    <script src="./js/common.js?v=2"></script>
+	<script src="./js/jq.js?v=1"></script>
+
+	<script type="text/javascript">
+		 
+
+         $('#login').click(function () {
+             getToken()
+             if(confirm()){
+                window.location.href="1.html"
+             }else{
+                console.log(getCookie('token'))
+             }
+
+         })
+          $('#get').click(function () {
+             console.log(getCookie('token'))
+         })
+
+
+
+	</script>
+</body>
+</html>

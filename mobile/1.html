@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>11</title>
+</head>
+<body>
+	<div id='resText'>
+		
+	</div>
+    <button id='get'>gettoken</button>
+	<button id='btn'>del cookie</button>
+    <script type="text/javascript" src="./js/jq.js"></script>
+	<script type="text/javascript" src="./js/common.js?v=1"></script>
+
+	<script type="text/javascript">
+		 $.ajax({
+             type: "GET",
+             url: "http://newlocalhost/index.php/admin/index/index",
+             data: {'token':token},
+             dataType: "json",
+             success: function(data){
+                         $('#resText').empty();   //清空resText里面的所有内容
+                         html = JSON.stringify(data)
+                         $('#resText').html(html);
+                      }, 
+             error: function (e) {
+                console.log(JSON.stringify(e))
+             }
+
+         });
+
+         $('#btn').click(function () {
+             delCookie('token')
+             history.go(0)
+         })
+
+       
+         $('#get').click(function () {
+             console.log(getCookie('token'))
+         })
+
+
+	</script>
+</body>
+</html>
